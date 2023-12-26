@@ -1,0 +1,124 @@
+
+body, html {
+  margin: 0;
+  padding: 0;
+  background-color: hsl(275, 100%, 97%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-width: 500px;
+}
+
+.bg-img{
+  position: relative;
+/*top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, 0%); 
+  z-index: 0; 
+  width: 100%; */
+}
+
+.faq{
+    position: absolute;    
+    z-index: 1;
+    background-color: white;
+    padding: 1.5rem;
+    max-width: 550px;
+/*     min-width: 500px; */
+    margin: 7rem 2rem;
+    display: flex;
+    justify-content:center;
+    align-self: center;
+    flex-direction: column;
+    border-radius: 2%;
+    left: 30%;
+    top: 50%;
+
+}
+
+.faq-header{
+    display: flex;
+    justify-content: space-between; /* Positions content and icon on opposite ends */
+    align-items: left; 
+    width: 32%;
+    border: none;
+    background: none;
+    padding-bottom: 1.5rem;
+    cursor: pointer;
+    text-align: left;
+    font-size: 1.1em;
+    position: relative;
+}
+
+.faq-icon {
+    margin-right: 2rem;
+}
+
+button {
+    background: none;       /* Remove background */
+    color: inherit;         /* Inherit font color from parent */
+    border: none;           /* Remove borders */
+    padding: 0;             /* Remove padding */
+    margin: 0;              /* Remove margins */
+    font: inherit;          /* Inherit font from parent */
+    cursor: pointer;        /* Add cursor to signify this is a clickable element */
+    outline: inherit;       /* Remove the default focus outline */
+    text-align: left;       /* Align text to the left */
+  }
+
+.faq-question {
+  display: flex;
+  justify-content: space-between; /* Positions content and icon on opposite ends */
+  align-items: center; /* Centers them vertically */
+  padding-bottom: 1rem;
+  width: 100%;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1.1em;
+  position: relative; /* Ensures the button is a positioning context for the icon */
+}
+
+.faq-img {
+    margin-left: 2rem; /* Pushes the icon to the end of the button */
+  }
+  
+
+  .faq-answer{
+    color: hsl(292, 16%, 49%);
+    max-height: 0;
+    display: none;
+    transition: max-height 0.7s ease-in-out;
+    padding-bottom: 1rem;
+    max-width: 500px;
+
+  }
+
+  .faq-question[aria-expanded="true"] + .faq-answer {
+    max-height: fit-content;
+  }
+
+  @media (max-width: 768px) {
+    body{
+      min-width: 375px;
+    }
+    .faq {
+        position: static; /* Adjust position for mobile view */
+        margin: 1rem;
+        width: auto; /* Adjust width for smaller screens */
+        left: auto;
+        top: auto;
+        transform: none;
+    }
+    .bg-img {
+        width: 100%; /* Make sure the background image is full width */
+        height: auto; /* Maintain aspect ratio */
+        position: absolute; /* Position it behind the FAQ */
+        top: 0;
+        left: 0;
+        z-index: -1; /* Behind the FAQ */
+    }
+}
+
